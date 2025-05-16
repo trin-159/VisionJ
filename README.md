@@ -3,44 +3,11 @@
 [![developer chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://imagesc.zulipchat.com/#narrow/stream/327236-ImageJ2)
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/imagej/imagej2)
 
-This is the repository for [ImageJ2](https://imagej.net/software/imagej2),
-a rewrite of the original [ImageJ](https://imagej.net/software/imagej) for
+This is the repository for VisionJ,
+a rewrite of the original [ImageJ2](https://imagej.net/software/imagej2) for
 multidimensional image data, with a focus on scientific imaging. Its central
-goal is to broaden the paradigm of ImageJ beyond the limitations of the
-original ImageJ application, to support a wider range of multidimensional
-scientific image data.
-
-To ensure backwards compatibility, ImageJ2 has been designed to fully integrate
-into the original ImageJ user interface. This allows users to keep using ImageJ
-in familiar ways, while providing the ability to migrate toward more powerful
-new features as needed.
-
-Under the hood, ImageJ2 completely isolates the image processing logic from the
-graphical user interface (UI), allowing ImageJ2 commands to be used in many
-contexts, including headless in the cloud or on a server such as
-[OMERO](https://imagej.net/software/omero), from within another Java
-application such as [KNIME](https://imagej.net/software/knime) or
-[Icy](https://imagej.net/software/icy), or even from Python-based applications
-such as [CellProfiler](https://imagej.net/software/cellprofiler) and
-[napari](https://imagej.net/software/napari) via
-[PyImageJ](https://pypi.org/project/pyimagej).
-
-ImageJ2 has an N-dimensional data model driven by the powerful
-[ImgLib2](https://imagej.net/libs/imglib2) library, which supports image data
-expressed in an extensible set of numeric and non-numeric types, and accessed
-from an extensible set of data sources. ImageJ2 is driven by a collaborative
-development process; for details, see the
-[Contributing](https://imagej.net/contribute/) page.
-
-We collaborate with related projects such as
-[Fiji](https://imagej.net/software/fiji),
-[SCIFIO](https://imagej.net/software/scifio),
-[CellProfiler](https://imagej.net/software/cellprofiler), and
-[OME](https://openmicroscopy.org/), and are striving to deliver a coherent
-software stack reusable throughout the life sciences community and beyond.
-For more details, see the [SciJava web site](https://scijava.org/).
-
-For more details on the project, see the [ImageJ wiki](https://imagej.net/).
+goal is to broaden the paradigm of ImageJ2 and ImageJ beyond the limitations of the
+original ImageJ2 application.
 
 
 # LICENSING
