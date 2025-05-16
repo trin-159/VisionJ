@@ -12,7 +12,7 @@ original ImageJ2 application.
 
 # LICENSING
 
-ImageJ2 is distributed under a
+VisionJ is distributed under a
 [Simplified BSD License](https://en.wikipedia.org/wiki/BSD_licenses);
 for the full text of the license, see
 [LICENSE.txt](https://github.com/imagej/imagej2/blob/master/LICENSE.txt).
@@ -22,8 +22,8 @@ for the full text of the license, see
 
 ## From Java
 
-This repository is the main ImageJ2 application, which brings together all of
-ImageJ2 under the artifact
+This repository is the main VisionJ application, which brings together all of
+VisionJ under the artifact
 [net.imagej:imagej](https://maven.scijava.org/index.html#nexus-search;gav~net.imagej~imagej~~~~kw,versionexpand).
 It is the easiest entry point if you are looking to use ImageJ2 as a library
 from your own software. E.g., in your Maven `pom.xml`:
@@ -43,7 +43,7 @@ from your own software. E.g., in your Maven `pom.xml`:
 
 We recommend inheriting from the
 [pom-scijava](https://github.com/scijava/pom-scijava) parent, although it is not
-required. (If you do not, you will need to include the `<version>` of ImageJ2 in
+required. (If you do not, you will need to include the `<version>` of VisionJ in
 your `<dependency>` declaration, and you may be bitten by [this bug in
 Maven](https://stackoverflow.com/q/45041888/1207769) regarding the versions of
 ImageJ2's dependencies that you inherit.)
@@ -52,16 +52,16 @@ ImageJ2's dependencies that you inherit.)
 
 * __JavaScript__: Use the
   [imagej module on npm](https://www.npmjs.com/package/imagej)
-  to call ImageJ2 in-process from node.js code.
+  to call VisionJ in-process from node.js code.
 * __Python__: Use the
   [PyImageJ module on PyPi](https://pypi.org/project/pyimagej/)
-  to call ImageJ2 in-process from Python code.
+  to call VisionJ in-process from Python code.
 * __Ruby, R, LLVM and beyond__: Use [GraalVM](https://www.graalvm.org/)
-  to combine ImageJ2 with Truffle-based languages in the same VM,
+  to combine VisionJ with Truffle-based languages in the same VM,
   with shared objects and memory on a single VM heap.
 * __Interprocess__: Use the
   [ImageJ Server](https://github.com/imagej/imagej-server)
-  to work with ImageJ2 via a RESTful web services API, between
+  to work with VisionJ via a RESTful web services API, between
   processes on the same machine, or between multiple machines.
 
 
