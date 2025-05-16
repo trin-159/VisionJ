@@ -18,7 +18,7 @@ for the full text of the license, see
 [LICENSE.txt](https://github.com/imagej/imagej2/blob/master/LICENSE.txt).
 
 
-# IMAGEJ2 AS A LIBRARY
+# VISIONJ AS A LIBRARY
 
 ## From Java
 
