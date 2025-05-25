@@ -6,7 +6,6 @@ import org.scijava.ui.UIService;
 import org.scijava.plugin.Plugin;
 
 import java.net.URL;
-import java.util.LinkedList;
 
 /*
  * Add Open Recent menu and load it from disk, if any exist from previous sessions
@@ -30,7 +29,7 @@ public class OpenRecentCommand implements Command {
 
     @Override
     public void run() {
-        uiService.showDialog("No recent files available.");
+        // uiService.showDialog("No recent files available.");
     }
 
 }
