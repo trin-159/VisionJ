@@ -29,6 +29,8 @@
 
 package net.imagej;
 
+import java.net.URL;
+
 import org.scijava.ui.UIService;
 
 /**
@@ -60,6 +62,13 @@ public final class Main {
 		// Launch swing as default UI
 		UIService ui = ij.context().getService(UIService.class);
 		ui.setDefaultUI(ui.getUI("swing-mdi"));
+
 		ij.launch(args);
+
+		// Load Recentntly opened files on start
+		// TODO: Need to move this to plugin framework
+		RecentList recentList = RecentList.getInstance();
+		URL iconURL = Main.class.getResource("/icons/puzzle-22.png");
+		RecentMenuUpdater.updateRecentMenu(ui, recentList, iconURL);
 	}
 }
