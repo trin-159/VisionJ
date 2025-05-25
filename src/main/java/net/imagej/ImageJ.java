@@ -51,6 +51,7 @@ import org.scijava.Context;
 import org.scijava.Gateway;
 import org.scijava.plugin.Plugin;
 import org.scijava.service.SciJavaService;
+import org.scijava.ui.UserInterface;
 
 /**
  * Main entry point into ImageJ2. This class enables working with ImageJ2
@@ -217,5 +218,12 @@ public class ImageJ extends AbstractGateway {
 	@Override
 	public String getShortName() {
 		return "ij";
+	}
+
+	// Printing avaiable UIs at start
+	public void printAvaialbleUIs() {
+		for (UserInterface ui : this.ui().getAvailableUIs()) {
+			System.out.println(ui.getClass().getSimpleName());
+		}
 	}
 }

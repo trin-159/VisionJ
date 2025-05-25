@@ -29,6 +29,8 @@
 
 package net.imagej;
 
+import org.scijava.ui.UIService;
+
 /**
  * Launches ImageJ.
  * 
@@ -49,8 +51,15 @@ public final class Main {
 	}
 
 	public static void main(final String... args) {
+
 		final ImageJ ij = new ImageJ();
+
+		// Just printing avaiable UIs
+		ij.printAvaialbleUIs();
+
+		// Launch swing as default UI
+		UIService ui = ij.context().getService(UIService.class);
+		ui.setDefaultUI(ui.getUI("swing-mdi"));
 		ij.launch(args);
 	}
-
 }
