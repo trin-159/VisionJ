@@ -1,7 +1,9 @@
 package net.imagej.undo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.scijava.Context;
 import org.scijava.service.Service;
 import org.scijava.plugin.Plugin;
@@ -18,6 +20,15 @@ public class UndoRedoService implements Service {
     private boolean isRecording = true;
     private Context context;
     private PluginInfo<?> pluginInfo;
+    private final Map<String, Runnable> shortcuts = new HashMap<>();
+
+    /**
+     * Gets the action associated with a key combination.
+     */
+    public Runnable getActionForKey(int keyCode, int modifiers) {
+        String key = "key:" + keyCode + ":" + modifiers;
+        return shortcuts.get(key);
+    }
 
     @Override
     public Context getContext() {
@@ -114,6 +125,16 @@ public class UndoRedoService implements Service {
     public void clear() {
         commandStack.clear();
     }
+
+    /**
+     * Registers a keyboard shortcut for an action.
+     */
+    public void registerCommand(int keyCode, int modifiers, String actionName, Runnable action) {
+        String key = "key:" + keyCode + ":" + modifiers;
+        shortcuts.put(key, action);
+    }
+
+    /**
 
     /**
      * Command interface for undo/redo operations.

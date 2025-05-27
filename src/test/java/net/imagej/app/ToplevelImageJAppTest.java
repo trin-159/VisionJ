@@ -34,6 +34,7 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import net.imagej.ImageJ;
+import net.imagej.patcher.LegacyInjector;
 
 import org.junit.After;
 import org.junit.Before;
@@ -51,8 +52,19 @@ public class ToplevelImageJAppTest {
 
 	@Before
 	public void setUp() {
-		ij = new ImageJ();
-	}
+        // Initialize LegacyInjector before creating ImageJ
+        LegacyInjector.preinit();
+        
+        // Create ImageJ instance
+        ij = new ImageJ();
+        ij.context().inject(this);
+        
+        // Ensure we have the correct app instance
+        App app = ij.app().getApp();
+        if (!(app instanceof ToplevelImageJApp)) {
+            throw new RuntimeException("Expected ToplevelImageJApp, got " + app.getClass().getName());
+        }
+    }
 
 	@After
 	public void tearDown() {
@@ -61,6 +73,7 @@ public class ToplevelImageJAppTest {
 
 	@Test
 	public void testApp() {
+		// Get the app instance
 		final App app = ij.app().getApp();
 		assertSame(ToplevelImageJApp.class, app.getClass());
 		assertEquals("net.imagej", app.getGroupId());
