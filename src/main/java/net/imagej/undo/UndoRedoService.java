@@ -8,9 +8,9 @@ import org.scijava.plugin.Plugin;
 import org.scijava.plugin.PluginInfo;
 
 /**
- * Service for managing undo/redo operations in ImageJ.
+ * undo/redo service
  *
- * @author Your Name
+ * @author Trin
  */
 @Plugin(type = Service.class)
 public class UndoRedoService implements Service {
