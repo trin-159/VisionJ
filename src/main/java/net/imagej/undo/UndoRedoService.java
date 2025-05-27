@@ -1,5 +1,7 @@
 package net.imagej.undo;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.scijava.Context;
 import org.scijava.service.Service;
 import org.scijava.plugin.Plugin;
@@ -126,27 +128,30 @@ public class UndoRedoService implements Service {
      * Stack implementation for managing commands.
      */
     private static class CommandStack {
-        private final Command[] commands = new Command[1000];
+        private final List<Command> commands = new ArrayList<>();
         private int undoIndex = -1;
         private int redoIndex = -1;
 
         public void addCommand(Command command) {
-            commands[++undoIndex] = command;
+            commands.add(command);
             command.execute();
             redoIndex = -1; // Clear redo stack when new command is added
+            undoIndex = commands.size() - 1;
         }
 
         public void undo() {
             if (undoIndex >= 0) {
-                commands[undoIndex].undo();
-                redoIndex = undoIndex--;
+                commands.get(undoIndex).undo();
+                redoIndex = undoIndex;
+                undoIndex--;
             }
         }
 
         public void redo() {
-            if (redoIndex >= 0 && redoIndex <= undoIndex + 1) {
-                commands[redoIndex].redo();
-                undoIndex = redoIndex++:
+            if (redoIndex >= 0 && redoIndex < commands.size()) {
+                commands.get(redoIndex).redo();
+                undoIndex = redoIndex;
+                redoIndex++;
             }
         }
 
@@ -155,10 +160,11 @@ public class UndoRedoService implements Service {
         }
 
         public boolean canRedo() {
-            return redoIndex >= 0 && redoIndex <= undoIndex + 1;
+            return redoIndex >= 0 && redoIndex < commands.size();
         }
 
         public void clear() {
+            commands.clear();
             undoIndex = -1;
             redoIndex = -1;
         }
