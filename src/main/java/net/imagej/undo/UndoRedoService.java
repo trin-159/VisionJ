@@ -9,11 +9,7 @@ import org.scijava.service.Service;
 import org.scijava.plugin.Plugin;
 import org.scijava.plugin.PluginInfo;
 
-/**
- * undo/redo service
- *
- * @author Trin
- */
+// undo/redo service
 @Plugin(type = Service.class)
 public class UndoRedoService implements Service {
     private final CommandStack commandStack = new CommandStack();
@@ -22,13 +18,11 @@ public class UndoRedoService implements Service {
     private PluginInfo<?> pluginInfo;
     private final Map<String, Runnable> shortcuts = new HashMap<>();
 
-    /**
-     * Gets the action associated with a key combination.
-     */
-    public Runnable getActionForKey(int keyCode, int modifiers) {
-        String key = "key:" + keyCode + ":" + modifiers;
-        return shortcuts.get(key);
-    }
+    // Gets the action associated with a key combination.
+    // public Runnable getActionForKey(int keyCode, int modifiers) {
+    //     String key = "key:" + keyCode + ":" + modifiers;
+    //     return shortcuts.get(key);
+    // }
 
     @Override
     public Context getContext() {
@@ -65,89 +59,68 @@ public class UndoRedoService implements Service {
         return pluginInfo;
     }
 
-    /**
-     * Adds a command to the undo stack.
-     */
+    // Adds a command to the undo stack.
     public void addCommand(Command command) {
         if (!isRecording) return;
         commandStack.addCommand(command);
     }
 
-    /**
-     * Undoes the last command.
-     */
+    // Undoes the last command.
     public void undo() {
         if (commandStack.canUndo()) {
             commandStack.undo();
         }
     }
 
-    /**
-     * Redoes the last undone command.
-     */
+    // Redoes the last undone command.
     public void redo() {
         if (commandStack.canRedo()) {
             commandStack.redo();
         }
     }
 
-    /**
-     * Checks if there are commands that can be undone.
-     */
+    // Checks if there are commands that can be undone.
     public boolean canUndo() {
         return commandStack.canUndo();
     }
 
-    /**
-     * Checks if there are commands that can be redone.
-     */
+    // Checks if there are commands that can be redone.
     public boolean canRedo() {
         return commandStack.canRedo();
     }
 
-    /**
-     * Starts recording commands.
-     */
+    // Starts recording commands.
     public void startRecording() {
         isRecording = true;
     }
 
-    /**
-     * Stops recording commands.
-     */
+    // Stops recording commands.
     public void stopRecording() {
         isRecording = false;
     }
 
-    /**
-     * Clears the undo/redo stack.
-     */
+    // Clears the undo/redo stack.
     public void clear() {
         commandStack.clear();
     }
 
-    /**
-     * Registers a keyboard shortcut for an action.
-     */
+    //registers keyboard shortcut
     public void registerCommand(int keyCode, int modifiers, String actionName, Runnable action) {
         String key = "key:" + keyCode + ":" + modifiers;
         shortcuts.put(key, action);
     }
 
-    /**
+    
 
-    /**
-     * Command interface for undo/redo operations.
-     */
+    
+    // Command interface for undo/redo operations.
     public interface Command {
         void execute();
         void undo();
         void redo();
     }
 
-    /**
-     * Stack implementation for managing commands.
-     */
+    // Stack implementation for managing commands.
     private static class CommandStack {
         private final List<Command> commands = new ArrayList<>();
         private int undoIndex = -1;
@@ -162,16 +135,16 @@ public class UndoRedoService implements Service {
 
         public void undo() {
             if (undoIndex >= 0) {
-                commands.get(undoIndex).undo();
-                redoIndex = undoIndex;
+                commands.get(undoIndex).undo(); // Execute undo operation
+                redoIndex = undoIndex; // Move redo index to current undo index
                 undoIndex--;
             }
         }
 
         public void redo() {
-            if (redoIndex >= 0 && redoIndex < commands.size()) {
-                commands.get(redoIndex).redo();
-                undoIndex = redoIndex;
+            if (redoIndex >= 0 && redoIndex < commands.size()) { // Check if redo index is within bounds
+                commands.get(redoIndex).redo(); // Execute redo operation
+                undoIndex = redoIndex; // Move undo index to current redo index
                 redoIndex++;
             }
         }
