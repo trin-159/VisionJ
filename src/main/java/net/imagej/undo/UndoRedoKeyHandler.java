@@ -14,15 +14,15 @@ public class UndoRedoKeyHandler {
     private UndoRedoService undoRedoService;
 
     public UndoRedoKeyHandler() {
-        // Add undo shortcut (Command-Z)
-        undoRedoService.registerCommand(90, 262144, "undo", () -> {
+        // Add undo shortcut (Command-;)
+        undoRedoService.registerCommand(59, 262144, "undo", () -> {
             if (undoRedoService.canUndo()) {
                 undoRedoService.undo();
             }
         });
 
-        // Add redo shortcut (Command-Y)
-        undoRedoService.registerCommand(89, 262144, "redo", () -> {
+        // Add redo shortcut (Command-')
+        undoRedoService.registerCommand(39, 262144, "redo", () -> {
             if (undoRedoService.canRedo()) {
                 undoRedoService.redo();
             }
