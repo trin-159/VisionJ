@@ -44,6 +44,7 @@ import net.imagej.ops.OpService;
 import net.imagej.render.RenderingService;
 import net.imagej.sampler.SamplerService;
 import net.imagej.updater.UpdateService;
+import net.imagej.undo.UndoRedoService;
 import net.imagej.updater.UploaderService;
 
 import org.scijava.AbstractGateway;
@@ -203,6 +204,15 @@ public class ImageJ extends AbstractGateway {
 	public UploaderService uploader() {
 		return get(UploaderService.class);
 	}
+
+    /**
+     * Gets this application context's {@link UndoRedoService}.
+     *
+     * @return The {@link UndoRedoService} of this application context.
+     */
+    public UndoRedoService undoRedo() {
+        return get(UndoRedoService.class);
+    }
 
 	/**
 	 * Gets this application context's {@link WindowService}.
