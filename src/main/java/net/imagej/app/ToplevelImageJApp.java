@@ -42,7 +42,7 @@ import org.scijava.service.Service;
  * @author Curtis Rueden
  * @see org.scijava.app.AppService
  */
-@Plugin(type = App.class, name = ImageJApp.NAME,
+@Plugin(type = App.class, name = "VisionJ",
 	priority = ImageJApp.PRIORITY + 1)
 public class ToplevelImageJApp extends ImageJApp {
 

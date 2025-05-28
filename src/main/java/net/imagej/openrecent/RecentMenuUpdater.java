@@ -1,4 +1,4 @@
-package net.imagej;
+package net.imagej.openrecent;
 
 import java.io.File;
 import java.net.URL;

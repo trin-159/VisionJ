@@ -13,7 +13,7 @@
 	<artifactId>imagej</artifactId>
 	<version>2.16.1-SNAPSHOT</version>
 
-	<name>ImageJ2</name>
+	<name>VisionJ</name>
 	<description>ImageJ2 is a rewrite of ImageJ for multidimensional image data, with a focus on scientific imaging.</description>
 	<url>https://imagej.net/</url>
 	<inceptionYear>2009</inceptionYear>

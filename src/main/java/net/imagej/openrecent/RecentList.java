@@ -1,4 +1,4 @@
-package net.imagej;
+package net.imagej.openrecent;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

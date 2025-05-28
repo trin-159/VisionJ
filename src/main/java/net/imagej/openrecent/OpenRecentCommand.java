@@ -1,4 +1,4 @@
-package net.imagej;
+package net.imagej.openrecent;
 
 import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;

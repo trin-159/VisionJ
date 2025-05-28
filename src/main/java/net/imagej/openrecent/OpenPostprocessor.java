@@ -1,4 +1,4 @@
-package net.imagej;
+package net.imagej.openrecent;
 
 import org.scijava.module.Module;
 import org.scijava.module.process.AbstractPostprocessorPlugin;

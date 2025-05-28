@@ -85,7 +85,7 @@ public class ImageJ extends AbstractGateway {
 	 * @see Context
 	 */
 	public ImageJ(final Context context) {
-		super(ImageJApp.NAME, context);
+		super("VisionJ", context);
 		scifio = new SCIFIO(context);
 	}
 

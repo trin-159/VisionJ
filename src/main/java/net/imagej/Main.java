@@ -33,6 +33,9 @@ import java.net.URL;
 
 import org.scijava.ui.UIService;
 
+import net.imagej.openrecent.RecentList;
+import net.imagej.openrecent.RecentMenuUpdater;
+
 /**
  * Launches ImageJ.
  * 
@@ -61,7 +64,7 @@ public final class Main {
 
 		// Launch swing as default UI
 		UIService ui = ij.context().getService(UIService.class);
-		ui.setDefaultUI(ui.getUI("swing-mdi"));
+		// ui.setDefaultUI(ui.getUI("swing-mdi"));
 
 		ij.launch(args);
 
