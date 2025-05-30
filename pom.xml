@@ -386,7 +386,7 @@
 			<artifactId>imagej-ui-swing</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- Local scijava-ui-swing with material modification -->
+		<!-- Local scijava-ui-swing with material modification RUKSHIK -->
 		<dependency>
 			<groupId>org.scijava</groupId>
 			<artifactId>scijava-ui-swing</artifactId>
