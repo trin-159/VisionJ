@@ -3,26 +3,22 @@ package net.imagej.undo;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 
-/**
- * Handles keyboard shortcuts for undo and redo operations.
- *
- * @author Trin
- */
+// Handles keyboard shortcuts for undo and redo operations.
 @Plugin(type = UndoRedoService.class)
 public class UndoRedoKeyHandler {
     @Parameter
     private UndoRedoService undoRedoService;
 
     public UndoRedoKeyHandler() {
-        // Add undo shortcut (Command+Shift+Z)
-        undoRedoService.registerCommand(90, 262144 | 64, "undo", () -> {
+        // Add undo shortcut (Command+Shift+[)
+        undoRedoService.registerCommand(91, 262144 | 64, "undo", () -> { 
             if (undoRedoService.canUndo()) {
                 undoRedoService.undo();
             }
         });
 
-        // Add redo shortcut (Command+Shift+Y)
-        undoRedoService.registerCommand(89, 262144 | 64, "redo", () -> {
+        // Add redo shortcut (Command+Shift+])
+        undoRedoService.registerCommand(93, 262144 | 64, "redo", () -> {
             if (undoRedoService.canRedo()) {
                 undoRedoService.redo();
             }
@@ -37,15 +33,15 @@ public class UndoRedoKeyHandler {
         return undoRedoService;
     }
 
-    public void showLabel(final boolean show) {
-        // No-op for this implementation
-    }
+    // public void showLabel(final boolean show) {
+    //    
+    // }
 
-    public void setEnabled(final boolean enabled) {
-        // No-op for this implementation
-    }
+    // public void setEnabled(final boolean enabled) {
+    //     
+    // }
 
-    public void setToolTipText(final String text) {
-        // No-op for this implementation
-    }
+    // public void setToolTipText(final String text) {
+    //     
+    // }
 }

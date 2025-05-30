@@ -44,6 +44,7 @@ import net.imagej.ops.OpService;
 import net.imagej.render.RenderingService;
 import net.imagej.sampler.SamplerService;
 import net.imagej.updater.UpdateService;
+import net.imagej.undo.UndoRedoKeyHandler;
 import net.imagej.undo.UndoRedoService;
 import net.imagej.updater.UploaderService;
 
@@ -211,6 +212,15 @@ public class ImageJ extends AbstractGateway {
      */
     public UndoRedoService undoRedo() {
         return get(UndoRedoService.class);
+    }
+
+    /**
+     * Gets this application context's {@link UndoRedoKeyHandler}.
+     *
+     * @return The {@link UndoRedoKeyHandler} of this application context.
+     */
+    public UndoRedoKeyHandler undoRedoKeyHandler() {
+		return get(UndoRedoKeyHandler.class);
     }
 
 	/**
